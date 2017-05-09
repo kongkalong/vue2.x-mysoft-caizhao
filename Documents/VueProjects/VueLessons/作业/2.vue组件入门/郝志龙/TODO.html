@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>TODO</title>
+		<link rel="stylesheet" href="TODO.css">
+
+	</head>
+
+	<body>
+		<div id="todo">
+			<h2>剩余待办：{{todoTotal}}条</h2>
+			<div class="todo-input">
+				<input type="text" v-model.trim="todoNew">
+				<button @click="todoAdd">添加</button>
+			</div>
+			<ul>
+				<li v-for="(todo,index) in todoList">
+					<component-li v-on:component-li="setContent" v-bind:textcontent="todo.text" v-bind:editable="todo.editable" v-bind:index="index" v-bind:icompleted="todo.completed">
+						<component-input v-on:component-input="checkClick" slot="checkboxComponent" v-bind:completed="todo.completed" v-bind:idvalue="index"></component-input>
+						<component-button slot="buttonadd" v-bind:vindex="index" v-bind:contenttext="todo.editable | editShow " v-on:component-button="editTodo"></component-button>
+						<component-button style="float:right;" slot="buttondelete" :disabled="todo.editable" contenttext="删除" v-bind:vindex="index" v-on:component-button="todoRemove"></component-button>
+					</component-li>
+
+					<!--
+                    	作者：offline
+                    	时间：2017-05-03
+                    	描述：--
+                   
+					<input type="checkbox" id="'todo'+index" :key="index" v-model="todo.completed">
+					<input type="text" v-if="todo.editable" v-model="todo.text">
+					<label v-else for="'todo'+index" :class="{completed:todo.completed}">{{ todo.text }}</label>
+					<button @click="editTodo(index)">{{ todo.editable | editShow}}</button>
+					<button @click="todoRemove(index)" :disabled="todo.editable" style="float:right;">删除</button>
+					 -->
+				</li>
+			</ul>
+
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="TODO.js"></script>
+	</body>
+
+</html>

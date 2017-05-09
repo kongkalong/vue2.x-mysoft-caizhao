@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>homework01</title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<style>
+			.completed {
+				text-decoration: line-through;
+				color: #666;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id='app' class="container">
+			<h1>剩余待办：{{total}}条</h1>
+			<div>
+				待办主题：
+				<input type="text" v-model.trim="message">
+				<button @click="Add()">添加</button>
+			</div>
+			<table style="width: 600px;">
+				<colgroup>
+					<col width="20" />
+					<col />
+					<col width="60" />
+					<col width="60" />
+				</colgroup>
+				<tr v-for="todo in showtodoList" border="0">
+					<td>
+						<input style="border:none" type="checkbox" :id="'todo'+todo.index" :key="todo.index" v-model="todo.done" />
+					</td>
+					<td>
+						<input type="text" style="width: 100%;" v-if="todo.editable" v-model="todo.subject">
+						<label v-else :for="'todo'+todo.index" style="width: 100%;" :class="{completed:todo.done}">{{ todo.subject }}</label>
+					</td>
+					<td><button @click="Edit(todo.index)">{{ todo.editable | editShow}}</button></td>
+					<td><button @click="Delete(todo.index)" :disabled="todo.editable">删除</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: '111',
+				todoList: [] //index,subject,statue(0,1,-1)
+			},
+			methods: {
+				Add: function() {					
+					if(this.message.length > 0) {
+						var newrow = {
+							index:this.todoList.length,
+							subject: this.message,
+							done: false,
+							statue: 0,
+							editable: false
+						};
+						this.todoList.push(newrow);
+						console.log(newrow);
+						this.message = '';
+					} else {
+						alert('不可为空！');
+					}
+				},
+				Delete: function(index) {
+					//this.todoList.splice(index, 1);
+					this.todoList[index].statue = -1;
+				},
+				Edit: function(index) {
+					this.todoList[index].editable = this.todoList[index].editable ? false : true;
+				}
+			},
+			filters: {
+				isdone: function(v) {
+					if(v == 1) return true;
+				},
+				dataShow: function(todo) {
+					return true;
+				},
+				editShow: function(v) {
+					return v ? '确认' : '编辑';
+				}
+			},
+			computed: {
+				showtodoList: function() {
+					return this.todoList.filter(function(todo) {
+						return todo.statue >= 0;
+					});
+				},
+				total: function() {
+					var toTal = 0;
+					this.todoList.forEach(function(todo) {
+						if(todo.statue >= 0) todo.statue = todo.done ? 1 : 0;
+						if(todo.statue == 0) {
+							toTal += 1;
+						}
+					}, this);
+					return toTal;
+				}
+			}
+		});
+	</script>
+
+</html>
