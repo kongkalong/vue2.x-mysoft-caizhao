@@ -1,8 +1,25 @@
-# rongxin
+# 案例名称
 
-> 融信采招平台
+> 采招平台案例
 
-## Build Setup
+## 使用组件
+
+ViewBox
+LoadMore
+Sticky
+Tab
+TabItem
+Search
+Group
+Cell
+
+## 使用插件
+
+AjaxPlugin -- 网络请求
+ToastPlugin -- toast弹窗
+dateFormat -- 时间格式化
+
+## 运行方式
 
 ``` bash
 # install dependencies
