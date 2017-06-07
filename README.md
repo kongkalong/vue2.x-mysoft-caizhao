@@ -4,20 +4,20 @@
 
 ## 使用组件
 
-ViewBox
-LoadMore
-Sticky
-Tab
-TabItem
-Search
-Group
-Cell
+> ViewBox,
+> LoadMore,
+> Sticky,
+> Tab,
+> TabItem,
+> Search,
+> Group,
+> Cell
 
 ## 使用插件
 
-AjaxPlugin -- 网络请求
-ToastPlugin -- toast弹窗
-dateFormat -- 时间格式化
+> AjaxPlugin -- 网络请求,
+> ToastPlugin -- toast弹窗,
+> dateFormat -- 时间格式化
 
 ## 运行方式
 
