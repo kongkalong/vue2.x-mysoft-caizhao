@@ -1,0 +1,22 @@
+{
+  "data": {
+    "CreateBy": "老总",
+    "CreateOn": "/Date(1496246400000)/",
+    "DocName": null,
+    "EndDate": "/Date(1495123200000)/",
+    "FileUrl": null,
+    "ImageUrl": "/images/pic3.jpg",
+    "IsEnd": null,
+    "PrefixUrl": null,
+    "ProductTypeGUID": "55e77334-debf-e511-9103-0023245ff9dd",
+    "ProductTypeShortName": "工程施工类-消防工程",
+    "QualificationRequirements": "<li>消防施工壹级资质。</li><li>企业年产值5000完以上。</li><li>近两年在天津市有大型地产公司合作经验。</li>",
+    "RefGUID": "adc875f1-ff59-e211-ab9f-6eae8b3793d1",
+    "RefName": "杭州XXXX公馆",
+    "Status": "已审核",
+    "TenderNoticeGUID": "fb0a0057-11ff-41f4-ab7d-1de719f6611c",
+    "TenderScope": "天津市消防施工单位",
+    "Title": "福州地产杭州区域石材幕墙采招招标公告",
+    "Type": "非集采"
+  }
+}
