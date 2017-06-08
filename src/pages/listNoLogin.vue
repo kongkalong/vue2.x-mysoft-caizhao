@@ -80,7 +80,6 @@ export default {
           }
           for (let i = 1; i < 9; i++) {
             const data = JSON.parse(JSON.stringify(res.data.data))
-            // const n = Math.random() * 8 + 1
             data.ImageUrl = '/images/pic' + parseInt(i) + '.jpg'
             this.dataList.push(data)
           }
